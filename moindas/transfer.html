@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="..//fontawesome-free-6.6.0-web/css/all.min.css">
+    <link rel="stylesheet" href="jcss/transfer.css">
+    <title>Transfer Funds</title>
+    <style>
+    </style>
+</head>
+<body>
+    <div class="container my-5">
+        <div class="row mb-3 text-center">
+            <div class="col tab-active" onclick="showTab('toOtherBank')">
+                To Other Bank<br><small>Totally free</small>
+            </div>
+            <div class="col tab-inactive" onclick="showTab('toJotEase')">
+                To JotEase<br><small>transfers with ease</small>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col">
+                <div class="info-banner text-center">Transfers are free!</div>
+            </div>
+        </div>
+
+        <div id="toOtherBank" class="tab-content">
+            <form>
+                <div class="mb-3">
+                    <label for="accountNumber" class="form-label">Enter 10-digit Account Number</label>
+                    <input type="text" id="accountNumber" class="form-control" placeholder="Enter Account Number">
+                </div>
+                <div class="mb-3">
+                    <label for="selectBank" class="form-label">Select Bank</label>
+                    <select id="selectBank" class="form-select">
+                        <option value="" selected>Select Bank</option>
+                        <option value="bank1">GTB 1</option>
+                        <option value="bank2">OPay 2</option>
+                        <option value="bank3">Kuda 3</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="amount" class="form-label">Amount</label>
+                    <input type="text" id="amount" class="form-control" placeholder="Enter Amount">
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Transfer</button>
+            </form>
+        </div>
+
+        <div id="toJotEase" class="tab-content" style="display: none;">
+            <div class="mb-3">
+                <label for="jotEaseUserId" class="form-label">User ID</label>
+                <input type="text" id="jotEaseUserId" class="form-control" placeholder="Enter User ID">
+            </div>
+            <div class="mb-3">
+                <label for="jotEaseAmount" class="form-label">Amount</label>
+                <input type="text" id="jotEaseAmount" class="form-control" placeholder="Enter Amount">
+            </div>
+            <button type="button" class="btn btn-primary w-100">Transfer</button> 
+        </div>
+    </div>
+      <!-- Bottom Navigation -->
+      <nav class="navbar fixed-bottom bg-light border-top  rounded-circle" style="font-size: 20px; background-color: rgb(250, 219, 161);">
+        <div class="container d-flex justify-content-around">
+          <a href="#" class="nav-item text-center">
+            <i class="fas fa-home"></i>
+            <div>Home</div>
+          </a>
+          <a href="#" class="nav-item text-center">
+            <i class="fas fa-qrcode"></i>
+            <div>Pay Bills</div>
+          </a>
+          <a href="#" class="nav-item text-center">
+            <i class="fa-solid fa-user"></i>
+            <div>Profile</div>
+          </a>
+        </div>
+      </nav>
+
+    <script>
+        function showTab(tabId) {
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.style.display = 'none'); 
+            document.getElementById(tabId).style.display = 'block';
+
+            document.querySelectorAll('.col').forEach(col => col.classList.remove('tab-active'));
+            document.querySelector(`.col[onclick="showTab('${tabId}')"]`).classList.add('tab-active');
+        }
+
+        showTab('toOtherBank'); 
+    </script>
+
+</body>
+</html>

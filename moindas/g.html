@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Country & Language Dropdown</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+  <div class="container mt-4">
+    <h4>Select Country and Language</h4>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label for="countrySelect" class="form-label">Country</label>
+        <select id="countrySelect" class="form-select">
+          <option value="">-- Select Country --</option>
+        </select>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="languageSelect" class="form-label">Language</label>
+        <select id="languageSelect" class="form-select">
+          <option value="">-- Select Language --</option>
+        </select>
+      </div>
+    </div>
+    <button class="btn btn-primary" id="loadBtn">Load Country & Language</button>
+  </div>
+
+  <script>
+    
+  let countriesData = [];
+
+  $("#loadBtn").click(function () {
+    $.get("https://restcountries.com/v3.1/all?fields=name,languages", function (data, status) {
+      if (status === "success") {
+        countriesData = data;
+        $("#countrySelect").empty().append('<option value="">-- Select Country --</option>');
+        data.forEach(function (country) {
+          const name = country.name?.common || "Unknown";
+          $("#countrySelect").append(`<option value="${name}">${name}</option>`);
+        });
+      }
+    });
+  });
+
+  $("#countrySelect").change(function () {
+    var selected = $(this).val();
+    var country = countriesData.find(c => c.name?.common === selected);
+
+    $("#languageSelect").empty().append('<option value="">-- Select Language --</option>');
+    if (country?.languages) {
+      Object.values(country.languages).forEach(function (lang) {
+        $("#languageSelect").append(`<option>${lang}</option>`);
+      });
+    }
+  });
+  </script>
+</body>
+</html>

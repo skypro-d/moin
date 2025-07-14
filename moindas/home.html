@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="fontawesome-free-6.6.0-web/css/all.min.css">
+    <link rel="stylesheet" href="jcss/home.css">
+    <script src="bo.js"></script>
+    <title>Account Dashboard</title>
+</head>
+<style>
+  div#wmn-fx {
+    position: fixed;
+    bottom: 20px;
+    right: 25px;
+    z-index:99999;
+}
+
+.wmn-wrap .wmn-widget {
+    padding: 15px;
+    background: #fff;
+    box-shadow: 0px 0px 10px -3px;
+    border-radius: 90px;
+    cursor: pointer;
+    z-index: 15;
+    position: relative;
+    width: 62px;
+    height: 62px;
+    box-sizing: border-box;
+}
+
+.wmn-wrap .wmn-widget span.notification {
+    position: absolute;
+    right: 0;
+    top: -5px;
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 10px;
+    font-size: 13px;
+    color: #fff;
+    text-align: center;
+    display: block;
+}
+
+  </style>
+<body>
+  <div class="container py-4 pt-3">
+    <!-- Navbar -->
+    <div class="row mx-2">
+      <nav class="navbar navbar-expand-sm navbar-light bg-light shadow-sm d-flex justify-content-between">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <img src="image/avter.png" alt="Avatar" class="rounded-pill" style="width: 40px;">
+          <div class="ms-2">
+            <span>Hi Michael <i class="fa-solid fa-check bg-primary text-white ms-2 me-3 rounded-circle" style="font-size: 12px; padding: 3px;"></i></span>
+            <div class="text-muted mx-2" style="font: size 10px;">ID: 234</div>
+          </div>
+        </a>
+        <div class="text-muted mx-2">
+          <a href="http://chat.whatsapp.com/J11Q3iWG3JhKPKy6UxBFiG"><i class="fa-solid fa-headphones text-muted"></i></a>
+        </div>
+      </nav>
+    </div>
+    <!-- Bank Info -->
+    <div class="row my-3">
+      <div class="col-12 col-md-12">
+        <div class="d-flex align-items-center justify-content-between bg-white p-3 rounded shadow-sm">
+          <div class="d-flex align-items-center">
+            <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+              <span class="fw-bold">M</span>
+            </div>
+            <div class="ms-3">
+              <div class="fw-bold">MICHAEL</div>
+            </div>
+          </div>
+          <div class="d-flex align-items-center">
+            <div class="me-3  text-muted fw-bold">9057101941</div>
+            <i class="fa-solid fa-copy text-primary"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <marquee behavior="left" direction="right">pay bills with ease</marquee>
+
+    <!-- Account Balance -->
+    <div class="row my-3">
+      <div class="col-12">
+        <div class="bg-primary text-white rounded-4 p-3 d-flex justify-content-between align-items-center">
+          <div>
+            <div>Account Balance <i class="fa-solid fa-eye" id="toggleVisibility"></i></div>
+            <h5 id="balance">₦300,000</h5>
+          </div>
+          <a href="#" class="text-white text-decoration-none">
+            <span class="mx-md-3">History<i class="fa-solid fa-angle-right ms-1 mx-md-2"></i></span>
+            
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Payment Options -->
+    <div class="row text-center g-2 py-3 shadow" style="font-size: 10px;">
+      <div class="col-3">
+        <div class="payment-option">
+          <i class="fa-brands fa-telegram "></i>
+          <p>Transfer</p>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="payment-option">
+          <i class="fas fa-mobile-alt"></i>
+          <p>Top-Up</p>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="payment-option">
+          <i class="fas fa-file-invoice-dollar"></i>
+          <p>Data</p>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="payment-option">
+          <i class="fas fa-qrcode"></i>
+          <p>Bills</p>
+        </div>
+      </div>
+    </div>
+    <!-- Chat Card -->
+    <div class="row my-4">
+      <div class="col-12">
+        <div class="chat-card">
+          <div class="d-flex align-items-center">
+            <i class="fa-brands fa-airbnb"></i>
+            <span class="ms-2">Chat with Michael</span>
+          </div>
+          <i class="fa-brands fa-telegram"></i>
+        </div>
+      </div>
+    </div>
+    <!-- Recent Activities -->
+    <div class="row mb-4">
+      <div class="col-12 d-flex justify-content-between align-items-center">
+        <h5>Recent Activities</h5>
+        <a href="#" class="text-primary text-decoration-none">View All &rsaquo;</a>
+      </div>
+      <div class="col-12">
+        <!-- Activity Item 1 -->
+        <div class="d-flex align-items-center mb-3">
+          <div class="activity-icon me-3">
+            <i class="fa-solid fa-phone text-success"></i>
+          </div>
+          <div class="flex-grow-1">
+            <h6 class="mb-0">Airtime Transaction</h6>
+            <small class="text-muted">12 Feb 2022 12:30 PM</small>
+          </div>
+          <div class="amount-green">₦7,000</div>
+        </div>
+        <!-- Activity Item 2 -->
+        <div class="d-flex align-items-center mb-3">
+          <div class="activity-icon me-3">
+            <i class="fa-solid fa-phone text-danger"></i>
+          </div>
+          <div class="flex-grow-1">
+            <h6 class="mb-0">Airtime Transaction</h6>
+            <small class="text-muted">12 Feb 2022 12:30 PM</small>
+          </div>
+          <div class="amount-red">₦1,000</div>
+        </div>
+      </div>
+    </div>
+    <!-- Bottom Navigation -->
+    <nav class="navbar fixed-bottom  py-3 bg-light border-top   " style="font-size: 20px; background-color: rgb(250, 219, 161);">
+      <div class="container d-flex justify-content-around">
+        <a href="#" class="nav-item text-center">
+          <i class="fas fa-home"></i>
+          <div>Home</div>
+        </a>
+        <a href="#" class="nav-item text-center">
+          <i class="fas fa-qrcode"></i>
+          <div>Pay Bills</div>
+        </a>
+        <a href="#" class="nav-item text-center">
+          <i class="fa-solid fa-user"></i>
+          <div>Profile</div>
+        </a>
+      </div>
+    </nav>
+    <script type="text/javascript">
+      (function () {
+          var options = {
+              whatsapp: "+2349013841249", // WhatsApp number
+              call_to_action: "Go4data Customer support", // Call to action
+              position: "right", // Position may be 'right' or 'left'
+          };
+          var proto = document.location.protocol, host = "getbutton.io", url = proto + "//static." + host;
+          var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
+          s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
+          var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+      })();
+  </script>
+  
+  </div>
+
+  <span> </span>
+  
+  <script>
+    $(document).ready(function () {
+    $(".fa-home").click(function(){
+ window.location.href ="file:///C:/Users/Azzan%20Micheal/OneDrive/Desktop/my%20code/my%20site/josepwork/jospe.html"
+})
+$(".fa-qrcode").click(function(){
+ window.location.href ="file:///C:/Users/Azzan%20Micheal/OneDrive/Desktop/my%20code/my%20site/josepwork/josebils.html"
+})
+$(".fa-user").click(function(){
+ window.location.href ="file:///C:/Users/Azzan%20Micheal/OneDrive/Desktop/my%20code/my%20site/josepwork/profile.html"
+})
+
+let isVisible = true; // Initial state
+    const actualBalance = "₦400"; // Store the actual balance
+
+    $("#toggleVisibility").click(function () {
+      if (isVisible) {
+        // Hide the balance
+        $("#balance").text("****");
+        $(this).removeClass("fa-eye").addClass("fa-eye-slash");
+      } else {
+        // Show the balance
+        $("#balance").text(actualBalance);
+        $(this).removeClass("fa-eye-slash").addClass("fa-eye");
+      }
+      isVisible = !isVisible; // Toggle the visibility state
+    });
+    })
+</script>
+
+
+</body>
+</html>
+
+   
